@@ -1,0 +1,14 @@
+{
+  // 麻將 Checkpoint 連線伺服器（Cloudflare Workers + Durable Objects）
+  "name": "mahjong-server",
+  "main": "index.js",
+  "compatibility_date": "2025-11-01",
+  "durable_objects": {
+    "bindings": [{ "name": "ROOMS", "class_name": "Room" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Room"] }],
+  "vars": {
+    // 只允許從這些網址連線，避免別的網站用掉你的免費額度；多個網址用逗號分開
+    "ALLOWED_ORIGINS": "https://mahjongcheckpoint-lab.github.io"
+  }
+}
